@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center;">
+<div class="container">
+    <table border="1" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Date</th>
+                <th>Doctor's ID</th>
+                <th>Patient's ID</th>
+                <th>Slot ID</th>
+                
+            </tr>
+        </thead>
+        {% if schedule %}
+        {% for x in schedule %}
+        <tbody>
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{x.slot_id.slot1}}</td>
+                <td>{{x.doctor_id.id}}</td>
+                <td>{{x.patient_id.id}}</td>
+                <td>{{x.slot_id.id}}</td>
+                <td></td>
+               
+            </tr>
+        </tbody>
+        {% endfor %}
+        {% endif %}
+    </table>
+
+    <h1>Departments in Hospital</h1>
+   <a href="{% url 'doctors' %}" style="text-decoration: none;">Doctors</a>
+   <a href="{% url 'patients' %}" style="text-decoration: none;">Patients</a>
+   <a href="{% url 'receptionist' %}">receptionist</a>
+   <form action="">
+    {{forms.doctor}}
+    {{forms.Name}}
+
+    {{forms.Age}}
+    {{forms.Initial_Disease}}
+   </form>
+
+</div>
+</body>
+</html>
